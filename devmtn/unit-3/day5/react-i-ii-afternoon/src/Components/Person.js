@@ -2,16 +2,17 @@ import React from 'react';
 
 const Person = (props) => {
     return(
-        <div>
-            <span>{props.person.id}</span>
+        <div className = 'btn-outline'>
+        <section className = 'info-card'>
+            <span className = "id">{props.person.id}/{ 25 - props.person.id + 1}</span>
             
-            <p>{props.person.name.first} {props.person.name.last} </p>
+            <h1 className='name'>{props.person.name.first} {props.person.name.last} </h1>
             
-            <p>{props.person.city}</p>
-            <p>{props.person.country}</p>
-            <p>{props.person.employer}</p>
-            <p>{props.person.title}</p>
-            <p>{props.person.favoriteMovies}</p>
+            <p className= 'person-data'><b>From:</b> {props.person.city} {props.person.country}</p>
+            <p className="person-data"><b>Job Title:</b> {props.person.title}</p>
+            <p className='person-data'><b>Employer:</b> {props.person.employer}</p>
+            <p className='fav'><b>Favorite Movies:</b><br/>{props.person.favoriteMovies}</p>
+        </section>
         </div>
     )
 }

@@ -8,7 +8,7 @@ class Data extends Component{
             index: 0,
            data: [
             {
-              id: 1,
+              id : 1,
               name: { first: "Waylin", last: "Lumsdon" },
               city: "Likiep",
               country: "Marshall Islands",
@@ -314,8 +314,8 @@ class Data extends Component{
         return(
             <div className='main-card'>
             <Person person={this.state.data[this.state.index]}/>
-            <button onClick={this.previousBtn}>Previous</button>
-            <button onClick={this.nextBtn}>Next</button>
+        <button className="btn-pre"onClick={this.previousBtn}> {`<`} Previous </button>
+            <button className="btn-nxt"onClick={this.nextBtn}>Next ></button>
             </div>
         )
     }
