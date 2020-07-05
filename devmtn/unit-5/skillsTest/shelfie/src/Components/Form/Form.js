@@ -45,7 +45,7 @@ class Form extends Component{
                 <button onClick={this.handleReset}>Cancel</button>
                 <button>Add to Inventory</button>
                 </form>
-        <h1>{this.state.price}</h1>
+        
             </div>
             
         )

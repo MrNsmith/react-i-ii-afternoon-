@@ -1,7 +1,9 @@
 require('dotenv').config()
+
 const express = require ('express'),
      massive = require('massive'),
      {SERVER_PORT, CONNECTION_STRING} = process.env,
+     controller = require('./controller'),
       app = express();
 massive({
     connectionString: CONNECTION_STRING,
@@ -15,6 +17,8 @@ massive({
      
         
 app.use(express.json());
+
+app.get('/api/inventory', controller.getInventory)
 
 
 

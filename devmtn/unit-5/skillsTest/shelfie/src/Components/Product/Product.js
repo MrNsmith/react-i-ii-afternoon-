@@ -1,12 +1,19 @@
-import React, {Component} from 'react';
+import React  from 'react';
 
-class Product extends Component{
-    render(){
-        return(
-            <div>
-                <div>Product</div>
-            </div>
-        )
-    }
+
+function Product(props){
+    console.log(props.itemImgUrl)
+        
+    return(
+        <div>
+            <h1>{props.itemName}</h1>
+            <h2>{props.itemPrice}</h2>
+            <img src={props.itemImgUrl} alt={props.itemName}/>
+            
+
+        </div>
+    )
+    
+    
 }
 export default Product;
