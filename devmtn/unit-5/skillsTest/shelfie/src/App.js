@@ -7,11 +7,34 @@ import Header from './Components/Header/Header';
 
 
 class App extends Component{
+    constructor(props){
+        super(props);
+        this.state ={
+            inventory:  [
+                {
+                name: 'shirt',
+                price: 4,
+                imgUrl:'https://i.ebayimg.com/images/g/L6wAAOSw40Zb2dIt/s-l300.jpg'
+                },
+                {
+                name: 'pants',
+                price: 5,
+                imgUrl:'https://i.ebayimg.com/images/g/L6wAAOSw40Zb2dIt/s-l300.jpg'
+                },
+                {
+                name: 'T-shirt',
+                price: 9,
+                imgUrl:'https://i.ebayimg.com/images/g/L6wAAOSw40Zb2dIt/s-l300.jpg'
+                }
+            ]
+                
+        }
+    }
     render(){
         return(
             <div className='App'>
                 <Header/>
-                <Dashboard/>
+                <Dashboard inventory={this.state.inventory}/>
                 <Product/>
                 <Form/>
             </div>
