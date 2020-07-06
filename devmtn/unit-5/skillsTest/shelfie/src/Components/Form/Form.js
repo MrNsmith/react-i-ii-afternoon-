@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import axios from 'axios'
 
 class Form extends Component{
     constructor(props){
@@ -6,12 +7,21 @@ class Form extends Component{
         this.state = {
             name: '',
             price: 0,
-            imgUrl: ''
+            img: '',
+            
         }
         this.handleReset = this.handleReset.bind(this);
         this.handleNameInput = this.handleNameInput.bind(this);
         this.handlePriceInput= this.handlePriceInput.bind(this);
         this.handleImgUrl = this.handleImgUrl.bind(this);
+    }
+    componentDidUpdate(preProps){
+        const {name,price,img} = this.props
+        if(this.props.selected !== preProps.selected){
+            this.setState({name: name, price: price, img: img})
+            
+         }
+
     }
     handleNameInput(val){
         this.setState({name: val})
@@ -22,11 +32,19 @@ class Form extends Component{
         
     }
     handleImgUrl (val) {
-        this.setState({imgUrl: val})
+        this.setState({img: val})
         
     }
+    createProduct = ()=>{
+        const {name,price,img} = this.state
+        axios.post('/api/product', {name:name, price:price, img:img})
+        .then(()=>this.props.inventoryFn)
+        .catch((err)=> console.log(err))
+        this.handleReset()
+    }
+
     handleReset(){
-        this.setState({name:'',price: 0, imgUrl:''} )
+        this.setState({name:'',price: 0, img:''} )
     }
     
     render(){
@@ -43,8 +61,12 @@ class Form extends Component{
                   onChange={(e)=>this.handleImgUrl(e.target.value)}
                 placeholder='Image Url'/>
                 <button onClick={this.handleReset}>Cancel</button>
-                <button>Add to Inventory</button>
+                <button onClick={this.createProduct}>Add to Inventory</button>
+                
+                    
                 </form>
+                
+                 
         
             </div>
             
