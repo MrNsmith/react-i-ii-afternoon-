@@ -37,6 +37,7 @@ app.get('/api/session',mainCtrl.logMeIn);
 
 app.get('/api/posts', mainCtrl.getUserPosts);
 app.get('/api/post/:title', mainCtrl.searchPostByTitle);
+app.get('/api/post/:id',mainCtrl.myPost);
 app.delete('/api/post/:id', mainCtrl.deletePost);
 //User endpoints      
 
