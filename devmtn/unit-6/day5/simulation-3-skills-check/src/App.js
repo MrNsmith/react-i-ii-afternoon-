@@ -1,21 +1,22 @@
 import React, {Component} from 'react';
 import routes from './routes'
 import Nav from './Components/Nav/Nav';
-
+import {withRouter} from 'react-router-dom'
 import './App.css';
 
 
-class App extends Component {
-    render(){
-        
-        return(
+function App (props){
+      return(
             <div className='App'>
-              <Nav/>
+            
+             {props.location.pathname === '/'? null: <Nav
+             history ={props.location}
+             />}
               {routes}
               
             </div>
         )
-    }
+    
 }
 
-export default App
+export default withRouter(App);

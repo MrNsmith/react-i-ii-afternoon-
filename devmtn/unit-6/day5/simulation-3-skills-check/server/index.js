@@ -31,10 +31,13 @@ massive({
 app.post('/api/register', ctrl.register);
 app.post('/api/login', ctrl.login);
 app.get('/api/logout', ctrl.logout)
+app.get('/api/session',mainCtrl.logMeIn);
+
 
 
 app.get('/api/posts', mainCtrl.getUserPosts);
-
+app.get('/api/post/:title', mainCtrl.searchPostByTitle);
+app.delete('/api/post/:id', mainCtrl.deletePost);
 //User endpoints      
 
 

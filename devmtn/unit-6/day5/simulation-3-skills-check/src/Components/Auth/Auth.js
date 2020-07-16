@@ -54,6 +54,7 @@ class Auth extends Component {
                  onChange={(element)=>this.handleInput(element)}/>
                 <input 
                 value={this.state.password}
+                type= 'password'
                 name='password'
                 placeholder='Password'
                 onChange={(element)=>this.handleInput(element)}/>
