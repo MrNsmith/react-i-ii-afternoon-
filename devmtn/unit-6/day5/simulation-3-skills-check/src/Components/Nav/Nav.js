@@ -33,7 +33,8 @@ class Nav extends Component {
                     <h1>{this.props.user.username}</h1>
                     <img src={this.props.user.profile_pic} alt={this.props.user.username}/>
                     <nav><Link to = '/dashboard'>Home</Link></nav> 
-                    <nav><Link to = '/new'>New Post</Link></nav>
+                    <nav><Link to = '/new'>Search Post</Link></nav>
+                    <nav><Link to = '/create'>New Post</Link></nav>
                     <nav><Link to= '/'>Logout</Link></nav>
                
                 </nav>

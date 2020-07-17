@@ -36,7 +36,9 @@ class Auth extends Component {
                 this.props.getUser(res.data);
                 this.props.history.push('/dashboard')
             })
-            .catch(err=> console.log(err))
+            .catch(err=> {
+                alert('Wrong Password Entered')
+                console.log(err)})
         }
     
     render(){

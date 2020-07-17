@@ -6,7 +6,7 @@ class Form extends Component {
         super(props)
         this.state = { 
          search:'',
-         userPosts:''
+         userPosts:null
         }
     }
     handleInput=(event)=>{
@@ -14,6 +14,7 @@ class Form extends Component {
     }
     searchPost=() =>{
      const {search}= this.state
+     console.log(search)
      axios.get(`/api/post/${search}`)
      .then(res => {
          this.setState({

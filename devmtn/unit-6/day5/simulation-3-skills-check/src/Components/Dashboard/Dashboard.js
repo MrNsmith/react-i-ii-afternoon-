@@ -9,7 +9,7 @@ class Dashboard extends Component {
     this.state = {
       postList: [],
       userPosts: [],
-      showPosts: false
+      showPosts: false,
     };
   }
   componentDidMount() {
@@ -25,31 +25,16 @@ class Dashboard extends Component {
     this.setState({ [event.target.name]: event.target.value });
   };
   handleToggle = () => {
-      this.setState({ showPosts: !this.state.showPosts})
-      this.checkBox()
-  }
-   
-//   checkBox = () => {
-//     const { postList, showPosts } = this.state;
-//     let newPost = [];
-//     if (showPosts) {
-//       newPost = postList.filter((post, index) => {
-//         return post.user_id === this.props.user["user_id"];
-//       });
+    this.setState({ showPosts: !this.state.showPosts });
+    this.checkBox();
+  };
 
-//       this.setState({
-       
-//         userPosts: newPost,
-//       });
-//       this.handleToggle()
-//     }
-//   };
-   checkBox = () => {
-       axios
-       .get(`/api/post/${this.props.user["user_id"]}`)
-       .then((res) => this.setState({ userPosts: res.data}))
-       .catch((err)=> console.log(err));
-   }
+  checkBox = () => {
+    axios
+      .get(`/api/posts/${this.props.user["user_id"]}`)
+      .then((res) => this.setState({ userPosts: res.data }))
+      .catch((err) => console.log(err));
+  };
   getPosts = () => {
     axios
       .get(`/api/posts`)
@@ -58,7 +43,7 @@ class Dashboard extends Component {
   };
   handleDelete = (id) => {
     axios
-      .delete(`/api/post/${id}`)
+      .delete(`/api/posts/${id}`)
       .then(() => this.getPosts())
       .catch((err) => console.log(err));
   };
@@ -93,11 +78,10 @@ class Dashboard extends Component {
             id="checkbox"
             onChange={this.handleToggle}
             checked={this.state.showPosts}
-            
           />
           <label>My Posts</label>
 
-          {this.state.showPosts ?  mappedUserPosts:mappedPosts }
+          {this.state.showPosts ? mappedUserPosts : mappedPosts}
         </div>
         <div></div>
       </div>

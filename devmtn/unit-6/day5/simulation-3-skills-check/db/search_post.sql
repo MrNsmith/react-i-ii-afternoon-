@@ -1,2 +1,2 @@
-select * from posts
-where title = $1;
+select * from posts p
+where p.title like '%' || $1 || '%';
