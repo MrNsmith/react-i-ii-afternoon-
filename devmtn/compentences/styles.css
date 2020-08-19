@@ -1,0 +1,54 @@
+/* flex box */
+/* float */
+/* font/background */
+/* position */
+/* selectors */
+
+*{
+    text-align: center;
+}
+.flex-justify-content{
+    background-image: url('https://i.insider.com/5b9137e10ce5f5b27e8b4a0c?width=1067&format=jpeg');
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap-reverse;
+    font-weight: bold; 
+   position: relative;
+}
+.flex-align-items{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: larger;
+    background-color: blue;
+    position: fixed;
+   
+}
+.float{
+    float: right;
+    
+   
+}
+.display{
+    display: block;
+    color:red;
+}
+#position{
+
+    top: 555px;
+    position: absolute;
+    
+}
+div > p {
+    background-color: yellow;
+  }
+  body p {
+   
+    color: red;
+  }
+  div + span{
+      
+      color: blue
+  }
+  
+ 
